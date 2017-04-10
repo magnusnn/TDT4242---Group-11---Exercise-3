@@ -1,0 +1,186 @@
+\section{Code Coverage}
+\label{sec:code_coverage}
+
+This section contains the code coverage of some of our tests. After speaking with the TA we understood this section to not be covered by unit-tests, but rather on the line coverage for a spesific function. For example if we tested for adding a new person, this is done and then the line coverage of adding a new person is looked at. We have only looked at the tests that passes.
+
+% ---------------- %
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.10\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 1
+    |p{\dimexpr.35\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 2
+    |p{\dimexpr.37\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 3
+    |p{\dimexpr.18\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|% column 4
+}
+\hline
+
+
+\textbf{Test ID}
+& \textbf{Test Name}
+& \textbf{Class}
+& \textbf{Line coverage}
+
+\\
+\hline
+
+1.1
+& Add New Software Version
+& SoftwarePanel.java,\newline SoftwareDbStorage.java,\newline Software.java
+& 88,4\% \newline 48,5\% \newline 100\%
+\\
+\hline
+
+1.2
+& Unique Part Number
+& SoftwarePanel.java,\newline SoftwareDbStorage.java,\newline Software.java
+& 88,3\% \newline 59,2\% \newline 100\%
+\\
+\hline
+
+1.3
+& Add Action Scripts to Database
+& EcuCellRenderer.java, \newline EcuPanel.java, \newline AddEcuAction.java, \newline EcuDbStorage.java, \newline SimpleEcu.java, \newline Ecu.java
+& 97,9\% \newline 81,8\% \newline 26,1\% \newline 70,6\% \newline 85,4\% \newline 50,0\%
+\\
+\hline
+
+1.4
+& Update Action Script
+& -
+& -
+\\
+\hline
+
+1.5
+& Software Component Belonging to ECU
+& EcuCellRenderer.java, \newline EcuPanel.java, \newline EcuDbStorage.java, \newline SimpleEcu.java, \newline Ecu.java
+& 97,9\% \newline 56,7\% \newline 13,0\% \newline 30,1\% \newline 23,4\%
+\\
+\hline
+
+1.6
+& Connection Between ECU and Software
+& EcuCellRenderer.java, \newline EcuPanel.java, \newline AddEcuAction.java, \newline EcuDbStorage.java, \newline SimpleEcu.java, \newline Ecu.java
+& 97,9\% \newline 79,2\% \newline 26,1\% \newline 71,6\% \newline 80,4\% \newline 50,0\%
+\\
+\hline
+
+1.7
+& Add New Series to Vehicle Database
+& NewVehiclePanel.java, \newline EcuVehPanel.java, \newline VehicleDbStorage.java, \newline Vehicle.java
+& 78,5\% \newline 79,4\% \newline 45,8\% \newline 62,9\%
+\\
+\hline
+
+1.8
+& Identify Faulty Vehicles
+& NewVehiclePanel.java, \newline EcuVehPanel.java, \newline VehicleDbStorage.java, \newline Vehicle.java
+& 78,5\% \newline 79,4\% \newline 45,8\% \newline 62,9\%
+\\
+\hline
+
+1.9
+& Send Information to Garages
+& RecallPanel.java
+& 98,9\%
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+
+% ---------------- %
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.10\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 1
+    |p{\dimexpr.35\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 2
+    |p{\dimexpr.37\linewidth-2\tabcolsep-1.3333\arrayrulewidth}% column 3
+    |p{\dimexpr.18\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|% column 4
+}
+\hline
+
+
+\textbf{Test ID}
+& \textbf{Test Name}
+& \textbf{Class}
+& \textbf{Line coverage}
+
+\\
+\hline
+
+2.1
+& Customer information and vehicle serial number
+& PersonCEllRenderer.java, \newline PersonPanel.java, \newline VehiclePanel.java, \newline GarageDbStorage.java
+& 98,0\% \newline 75,1\% \newline 54,3\% \newline 21,1\%
+\\
+\hline
+
+2.2
+& Download vehicle information from main computer
+& PersonCEllRenderer.java, \newline SearchVehicleIDAction.java, \newline VehiclePanel.java, \newline Vehicle.java, \newline GarageDbStorage.java
+& 98,0\% \newline 92,1\% \newline 54,3\% \newline 26,3\% \newline 21,1\%
+\\
+\hline
+
+2.3
+& Dual configuration information for ECU
+& -
+& -
+\\
+\hline
+
+2.4
+& Download latest version of all non-installed components
+& -
+& -
+\\
+\hline
+
+2.5
+& Install new software components
+& -
+& -
+\\
+\hline
+
+2.6
+& Update system history lo
+& -
+& -
+\\
+\hline
+
+2.7
+& Update vehicle configuration information
+& -
+& -
+\\
+\hline
+
+2.8
+& Update vehicle configuration information in central
+database
+& -
+& -
+\\
+\hline
+
+2.9
+& Map Customer to vehicle and vice-versa
+& PersonCellRenderer.java, \newline SearchPersonAction.java, \newline PersonPanel.java, \newline Person.java, \newline GarageDbStorage.java
+& 98,0\% \newline 94,5\% \newline 75,1\% \newline 43,0\% \newline 21,1\%
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+\subsection{Conclusion of code coverage}
+We were not able to obtain a code coverage for some of the results as shown in the table above. This was due to some issues with the software and we were not certain that the results received was correct. The recommended coverage is on average able 50\%. This was not the case for every class that we found that was used during the test. We focused on the main classes in the tables above. By looking at the system as a whole, we did get a code coverage of the \textit{Factory} around 43\%, and for the \textit{Garage} around 23\%. 
+\clearpage

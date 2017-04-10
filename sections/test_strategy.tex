@@ -1,0 +1,84 @@
+\label{test_strategy}
+\section{Test Strategy}
+
+Before a system can be validated through testing, a strategy for these tests must be made. A test strategy is crafted in order to show when, where, how and by whom tests of a system should be performed in order to achieve the specified goals. It should also provide clear justification for why these tests are performed. The purpose of setting up a test strategy is get an early agreement on goals and objectives with the stakeholders, manage expectations right from the start, and be sure that we are heading in the right direction.
+
+\subsection{Scope}
+The scope of the test strategy is to test the source code of SoCam. It will be tested as  it is presented on itslearning. No bug fixes will be carried out to remedy any errors found through the tests performed. 
+
+\subsection{Stakeholders}
+
+\begin{enumerate}
+
+    \item \textbf{Developers} - The developers will develop the system according to the requirements of the customer. Will perform unit tests.
+    
+    \item \textbf{Testers} - The testers will test the system. Will perform the integration testing and the system testing. 
+    
+    \item \textbf{Customer} - The customer is the owner of the system. The customer wants the
+    system to operate according to the functional and non-functional requirements, and wants a low cost and low investment time to develop and operate the system. 
+    
+    \item \textbf{End-users} - The end-users will operate the system in their daily lives. They want a system that operates according to their expectations, i.e. requirements are met, and the system provides a bug-free and secure experience. Will perform acceptance tests and operational tests. 
+    
+\end{enumerate}
+
+\subsection{Test Environment}
+To test the SoCam software the tester had to have a computer available that was able to run the SoCam software. In addition a test user was needed to test the software. 
+
+\subsection{Test types}
+
+This section presents a brief test strategy for both unit testing and integration testing, and a longer and more detailed strategy for system testing of SoCam.
+
+\subsubsection{Test Strategy - Unit Testing}
+This section will explain unit testing.
+
+\begin{enumerate}
+    \item \textbf{What} - Unit testing is a software testing method where individual units, functions, or areas of source code is tested.
+    \item \textbf{Why} - The purpose of the unit tests is to decide whether an individual unit, function, or area of source code is fit to use or not. It gives the tester the ability to verify that units of code work as intended, identify bad logic and errors in the source code, and prevent further addition to the source code from breaking the system. 
+    \item \textbf{How} - Testing units of code by sending in input and observing the output. Judge whether the input and output is correct. 
+    \item \textbf{When} - Unit testing occurs before integration testing. Specifics depend on the chosen development practice. Periodically, after changes to the source code. 
+\end{enumerate}
+
+\noindent Unit testing will not be done in this exercise, see section \ref{sec:code_coverage} for more details. 
+
+\subsubsection{Test Strategy - Integration Testing}
+This section will explain integration testing.
+
+\begin{enumerate}
+    \item \textbf{What} - Integration testing is a testing method where software modules are grouped together and tested. 
+    \item \textbf{Why} - Integration testing is done to verify functional, performance, and reliability requirements on the system. 
+    \item \textbf{How} - It takes in modules that has been unit tested, groups them together in larger aggregates, applies specific integration tests to those aggregates, then delivers as output the integrated system ready for system testing. 
+    \item \textbf{When} - Integration testing occurs after unit testing and before system testing. 
+\end{enumerate}
+
+\noindent Integration testing will not be done in this exercise, since the exercise provided the group with an already integrated system. The tests will be more focused towards requirements, and for system testing is more suitable for this purpose. 
+
+\subsubsection{Test Strategy - System Testing}
+This section will explain system testing.
+
+\begin{enumerate}
+    \item \textbf{What} - System testing is a black-box testing method, meaning that no knowledge of the source code is needed to perform the test. It is conducted on a complete, integrated system. The testing is usually carried out by an unbiased team or specialized testers to measure the true quality of the system. It should test both functional and non-functional requirements, and is often one of the last tests to verify that the system delivers on its requirements and purpose. 
+    \item \textbf{Why} - System testing evaluates the system's alignment with the specified system requirements. It is the first level of testing where the system is tested in its entirety. It verifies whether functional and non-functional requirements are met or not. Further it allows the tester to test the architecture and business requirement. Lastly the system testing is performed in an environment close to its actual production environment. 
+    \item \textbf{How} - The follow steps are conducted in a system test
+
+    \begin{enumerate}
+        \item Define a test plan 
+        \item Define test cases 
+        \item Execute the test cases
+        \item Update the test cases based on the results
+        \item Bug verification
+        \item Repeat testing cycle (if needed)
+    \end{enumerate}
+    
+    \item \textbf{When} - System testing is carried out after integration testing.
+\end{enumerate}
+
+\subsection{Test completion}
+
+This section will explain what it takes for each test level to be completed.
+
+\begin{enumerate}
+    \item \textbf{Unit test} - The input to the unit, function, area of code, etc. should give the correct output. 
+    \item \textbf{Integration test} - The aggregated modules behaves according to their respective input. 
+    \item \textbf{System testing} - The system in its entirety should give the correct output to user input. The output should be displayed to the user through a user interface. 
+\end{enumerate}
+

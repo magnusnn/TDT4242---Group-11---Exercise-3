@@ -1,0 +1,1728 @@
+\section{Tests and Testing Result}
+
+This section will presents the test cases and their results. 
+
+\subsection{Manufacturer system}
+
+This section will present the requirement tests of the manufacturer system.
+Note, all test plans requires that the user is logged into the factory system.
+
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.1
+\\
+\hline
+
+Test name
+& Add New Software Version
+\\
+\hline
+
+Main goal
+& Insert new software and new versions of existing software into a software database
+\\
+\hline
+
+Requirement(s)
+& The new software and new versions of software the CM enters shall be stored in a software archive
+\\
+\hline
+
+Description
+& All new software versions that are created by the CM should be stored in the software archive
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The  software  entered  by  the  CM  into  the  software  archive can be erroneous.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& -
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Major version: 6
+    \item Fetch URL: sw6.0.net
+    \item Press 'Save' button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Minor version: 0
+    \item Status: Software added
+    \item 6(0) in Software Archive dropdown list
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Status: Software added
+\\
+\hline
+
+Result
+& Status: Software added
+\\
+\hline
+
+Comments
+& Adding a new software component will add it into the archive with the given version number successfully. Though, adding an existing software component will yield a status of it already existing in the archive, and instead add a new sub id to that version.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.2
+\\
+\hline
+
+Test name
+& Unique Part Number
+\\
+\hline
+
+Main goal
+& Insert new software and new versions of existing software into a software database
+\\
+\hline
+
+Requirement(s)
+& The software shall version the software components by subnumbering the unique part number
+\\
+\hline
+
+Description
+& It should be possible to identify every software component in the archive by their unique part number. The system shall version the software components by the use of subnumbering. 
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The software entered into the software archive does not receive the correct subnumber for versioning
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& An earlier existing software component version
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Major version: 6
+    \item Fetch URL: sw6.1.net
+    \item Press 'Save' button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Minor version: 1
+    \item Status: Software added
+    \item 6(1) in Software Archive dropdown list
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Status: Software id already in db, added new sub id
+\\
+\hline
+
+Result
+& Status: Software id already in db, added new sub id
+\\
+\hline
+
+Comments
+& Adding an already existing software component will return with Status: Software id already in db, added new sub id. The software component will be added to the archive with a new minor version in parenthesis. 
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+%note
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.3
+\\
+\hline
+
+Test name
+& Add Action Scripts to Database
+\\
+\hline
+
+Main goal
+& Maintain a database that shows which control units (ECU)that needs which software
+\\
+\hline
+
+Requirement(s)
+& The  action  scripts  the  CM  enters  shall  be  inserted  in  the action database
+\\
+\hline
+
+Description
+& It should be able to create an action script by the CM that should be saved in the action database
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The action script the CM enters can be faulty
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& Software component in archive
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Press New button
+    \item ECU ID: 4
+    \item Software ID: 6
+    \item Press Save button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Status: ECU added to database
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Status: Ecu added to database
+\\
+\hline
+
+Result
+& Status: Ecu added to database
+\\
+\hline
+
+Comments
+& Adding a new ECU is done by adding a new ECU ID, if it is already in the database the output will say so. Then, adding a software ID existing from the archive, if that already is connecting to another ECU the output will say so. If adding a new ECU ID with a free software component, they will be binded and added to the database.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.4
+\\
+\hline
+
+Test name
+& Update Action Script
+\\
+\hline
+
+Main goal
+& Maintain a database that shows which control units (ECU)that needs which software
+\\
+\hline
+
+Requirement(s)
+& The action scripts shall be updatable by the CM
+\\
+\hline
+
+Description
+& The CM should be able to update every action script in the database
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The updated action script can be faulty
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& An existing action script
+\\
+\hline
+
+Input
+& -
+\\
+\hline
+
+Output
+& -
+\\
+\hline
+
+Expected result
+& Status: Action script updated
+\\
+\hline
+
+Result
+& -
+\\
+\hline
+
+Comments
+& It doesn't seem like it is possible to update an action script within the system. Neither is it possible to delete created action script, and remake it.
+\\
+\hline
+
+Passed
+& No
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.5
+\\
+\hline
+
+Test name
+& Software Component Belonging to ECU
+\\
+\hline
+
+Main goal
+& Maintain a database that shows which control units (ECU)that needs which software
+\\
+\hline
+
+Requirement(s)
+& The action script shall give information of which ECU needs which software component
+\\
+\hline
+
+Description
+& It should be able to retrieve correct information of which ECU that need which software component from the action script
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The action script gives the wrong information on which ECU needs which software component
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& Active action script
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Choosing ECU from the dropdown list
+    \item ECU: 2
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item The rows underneath the dropdown list shows which ECU is connected to the software component
+    \item ECU ID: 2, Software ID: 2
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Finding which ECU is connected to which software
+\\
+\hline
+
+Result
+& Found out which ECU is connected to which software
+\\
+\hline
+
+Comments
+& It is possible to see which ECU is connected to which software by choosing any ECU from the dropdown list. The chosen ECU will show in the row underneath the dropdown list, and underneath there again the software connected to that ECU is displayed. 
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.6
+\\
+\hline
+
+Test name
+& Connection Between ECU and Software
+\\
+\hline
+
+Main goal
+& Maintain a database that shows which control units (ECU)that needs which software
+\\
+\hline
+
+Requirement(s)
+& The action script shall connect the ECU to the software component that is used to control it
+\\
+\hline
+
+Description
+& Created action scripts should connect ECU to software component that is used to control it.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The action script connects the ECU to the wrong software component
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& There must be a software version in the software archive
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Press New button
+    \item ECU ID: 4
+    \item Software ID: 6
+    \item Press Save button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Status: ECU added to the database
+    \item ECU is now connected to the software
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& ECU connecting to software
+\\
+\hline
+
+Result
+& ECU connected to software
+\\
+\hline
+
+Comments
+& When creating a new action script with a new ECU and a software component that is not connected to another ECU, the new ECU will automatically connect to that software component. If that software component is already connected to another ECU, the output will yield an error message, 'Status: The software is controlling another ecu, please enter a new one'.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.7
+\\
+\hline
+
+Test name
+& Add New Series to Vehicle Database
+\\
+\hline
+
+Main goal
+& Assist the garage in updating car software
+\\
+\hline
+
+Requirement(s)
+& The  entry  for  a  new  production  series  defined  by  the  CM shall be inserted into the vehicle database
+\\
+\hline
+
+Description
+& All new production series that are added by the CM should be added into the vehicle database
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The vehicle database entry may contain wrong information
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& 
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Press New button
+    \item Vehicle ID: 6
+    \item Series: 200
+    \item ECU ID: 2, Major SW version: 2, Minor SW version: 1
+    \item Press Save button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Status: Vehicle added to database
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Status: Vehicle added to database
+\\
+\hline
+
+Result
+& Status: Vehicle added to database
+\\
+\hline
+
+Comments
+& Adding a new series to the vehicle database is successful when adding a new unique vehicle ID with the new vehicle series. If the vehicle ID already exists, the output will say so, it will still add it to the database and increment the vehicle ID by one.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.8
+\\
+\hline
+
+Test name
+& Identify Faulty Vehicles
+\\
+\hline
+
+Main goal
+& Send an alarm (”recall”) if we discover critical defect
+\\
+\hline
+
+Requirement(s)
+& Through the system the CM shall be able to identify all the vehicles with faulty components
+\\
+\hline
+
+Description
+& It should be possible for the CM through the system to identify every vehicle that have one or more faulty components
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The faulty component of one or more vehicles is not identified
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& Faulty vehicle
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Choose vehicle from dropdown list in vehicle database
+    \item See history log for vehicle fault
+    \item Choose vehicle 4
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Vehicle information displayed
+    \item Type of fault
+    \item Vehicle fault, wrecked
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& See all vehicles with software faults
+\\
+\hline
+
+Result
+& Not able to see vehicles with only software faults
+\\
+\hline
+
+Comments
+& Displaying vehicle faults is done by checking the vehicle database, it will list the fault in history log. It is not possible to get a list of software faults of each vehicle.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Manufacturer system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 1.9
+\\
+\hline
+
+Test name
+& Send Information to Garages
+\\
+\hline
+
+Main goal
+& Send an alarm (”recall”) if we discover critical defect
+\\
+\hline
+
+Requirement(s)
+& The CM shall be able to send information plus the new version of all components to all registered garages
+\\
+\hline
+
+Description
+& It should be possible for the CM to send information as well the new version of software components to all registered garages
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& Data is not sent to all registered garages
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& There must be a major software version in the software archive
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Major software version: 6
+    \item Minor software version: 1
+    \item Press Get list button
+    \item Press Send button
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Status: You may now push the 'Send' button in order to recall vehicles
+    \item Status: Emails sent!
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Status: Emails sent!
+\\
+\hline
+
+Result
+& Status: Emails sent!
+\\
+\hline
+
+Comments
+& Sending information to the garages with the the version of software component is done by entering the appropriate system version, then pressing get list to get the list of vehicles and send that list to garages. Though, entering a non-existing software component version and sending that to garages will yield no errors and still send the emails. It is not possible to send additional information.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+
+\end{tabularx}
+\end{table}
+% ---------------- %
+
+
+\clearpage
+
+\subsection{Garage system}
+
+This section will present the requirement tests of the garage system.
+
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.1
+\\
+\hline
+
+Test name
+& Customer information and vehicle serial number
+\\
+\hline
+
+Main goal
+& Customer information and vehicle serial number should be present for each car produced
+\\
+\hline
+
+Requirement(s)
+& All cars produced shall have an associated serial number and customer information
+\\
+\hline
+
+Description
+& All cars produced shall have an associated serial number and customer information
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The system has the wrong/no information present
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& Customer and car database must be populated with atleast one entry for both
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select an owner
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Customer and Car view populates with correct data (customer contact information and vehicle serial number)
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Customer and vehicle data is loaded
+\\
+\hline
+
+Result
+& Customer and vehicle data is loaded
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server, or by loading the local database.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.2
+\\
+\hline
+
+Test name
+& Download vehicle information from main computer
+\\
+\hline
+
+Main goal
+& Information associated with a vehicle is downloaded when a vehicle serial number is provided as a key.
+\\
+\hline
+
+Requirement(s)
+& Data is downloaded when a valid serial number is supplied
+\\
+\hline
+
+Description
+& Information associated with a vehicle is downloaded when a vehicle serial number is provided as a key.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& Wrong serial number is entered, returning data from another vehicle than intended.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& At least one vehicle record must be present and the garage software needs to be connected to the factory central server
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select "Search VehicleID" from tools.
+    \item Input vehicle ID number and press "OK".
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item Box in which to enter serial number opens
+    \item View updates with the vehicle's registered owner selected.
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Customer and vehicle data is loaded when serial number is entered.
+\\
+\hline
+
+Result
+& Customer and vehicle data is loaded when serial number is entered.
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. Entering an erronus/wrong serial number returns the data associated with that serial number. Entering a non-existent serial number logs an exception in the serial log, and continues running without problems, no owner is selected and the views don't update.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.3
+\\
+\hline
+
+Test name
+& Dual configuration information for ECU.
+\\
+\hline
+
+Main goal
+& The system shall use two sets of configuration information to to identify the latest version of each software component for each ECU in the vehicle
+\\
+\hline
+
+Requirement(s)
+& Correct dual ECU information is retrieved
+\\
+\hline
+
+Description
+& Each vehicle has two sets of ECU configuration information stored, both needs to be retrieved and displayed when car data is downloaded from the central server.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& Software version for one or more component cannot be identified or differs from the last version.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& At least one vehicle record must be present either in the local or central database
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle and press "Get Vehicle Information"
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with the vehicle's dual ECU information. Show the installed ECU software version, and whether or not it is the latest minor version.
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Dual ECU information is downloaded and displayed correctly.
+\\
+\hline
+
+Result
+& Dual ECU information is downloaded and displayed correctly.
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. The information displayed is correct. Adding a new minor ECU version in the factory, and then reloading the garage view correctly indicates that a new software is available for the given car and that an update needs to be installed.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.4
+\\
+\hline
+
+Test name
+& Download latest version of all non-installed components.
+\\
+\hline
+
+Main goal
+& The system shall download the latest version of all components that are needed for the vehicle but not yet installed.
+\\
+\hline
+
+Requirement(s)
+& Download the latest version of all non-installed components for a given car.
+\\
+\hline
+
+Description
+& When vehicle information is retrieved, download any needed outdated/non-installed components.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The system downloads and installs the wrong software version
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& Updated software components need to be available.
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle with outdated components and press "Get Vehicle Information"
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with the vehicle's dual ECU information. View shows that ECU component is outdated. New ECU version is downloaded but not installed
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& New components are downloaded when an outdated component is detected.
+\\
+\hline
+
+Result
+& New components are downloaded when an outdated component is detected.
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. View indicates that one or more ECU components are out of date, and new ones are downloaded but not installed, as expected. There's little risk of wrong information being displayed or wrong components are downloaded, as long as the correct vehicle ID has been entered. Factory side problems can lead to wrong ECU software to be installed on a non-compatible unit.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.5
+\\
+\hline
+
+Test name
+& Install new software components
+\\
+\hline
+
+Main goal
+& The system shall install all new software components.
+\\
+\hline
+
+Requirement(s)
+& Install new/updated software for out of that components.
+\\
+\hline
+
+Description
+& When a vehicle with out of date components are selected and updated, new software is installed and the updated information is sent to the central server.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& One or more software component installation fails.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& New installable software component needs to be present, and a compatible vehicle.
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle with outdated components and press "Get Vehicle Information"
+    \item Press "Update car"
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with the vehicle's dual ECU information. View shows that ECU component is outdated.
+    \item Out of data components are updated/installed. History log is automatically amended with correct date and description of the changes. Out of date flag is removed from view. Updated information is sent to central server.
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Out of date components are upgraded with new software.
+\\
+\hline
+
+Result
+& Out of date components are upgraded with new software.
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. New components are installed correctly, and the central server is notified of the changes. There's little risk of wrong information being displayed or wrong components are installed, as long as the correct vehicle ID has been entered. Factory side problems can lead to wrong ECU software to be installed on a non-compatible unit.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.6
+\\
+\hline
+
+Test name
+& Update system history log
+\\
+\hline
+
+Main goal
+& The system shall update the central history database on changes
+\\
+\hline
+
+Requirement(s)
+& The system shall update the history log and send it to the action database
+\\
+\hline
+
+Description
+& Whenever a change is performed on a car the history log is appended, and sent to the central server.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The updated history log is erroneus
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& The system needs to be connected to the central database and at least one vehicle record must be present in the database.
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle
+    \item Perform a change to the vehicle details
+    \item Commit the changes
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with vehicle information
+    \item New information is stored in the garage history log
+    \item Changes are committed in full to the central database
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& History log is updated on the central server
+\\
+\hline
+
+Result
+& History log is updated on the central server
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. Any changes to the vehicle log in the garage view is commited to the central database
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.7
+\\
+\hline
+
+Test name
+& Update vehicle configuration information
+\\
+\hline
+
+Main goal
+& The system shall update vehicle configuration information
+\\
+\hline
+
+Requirement(s)
+& The system shall update vehicle configuration information
+\\
+\hline
+
+Description
+& The system updates the vehicle configuration information
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The updated vehicle's configuration is faulty or the vehicle's configuration is not updates.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& A vehicle must be in the local or central database
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle
+    \item Perform a change to the vehicle information
+    \item Commit the changes
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with vehicle information
+    \item New information is stored
+    \item Changes are committed in full to the garage database
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Vehicle configuration information is updated
+\\
+\hline
+
+Result
+& Vehicle configuration information is updated
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. Any changes to the vehicle configuration in the garage view is committed to the garage database
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.8
+\\
+\hline
+
+Test name
+& Update vehicle configuration information in central database.
+\\
+\hline
+
+Main goal
+& The system shall update vehicle's configuration in the vehicle database.
+\\
+\hline
+
+Requirement(s)
+& The system shall update vehicle's configuration in the vehicle database.
+\\
+\hline
+
+Description
+& The system updates the vehicle configuration information in the central database.
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The vehicle database is updated with faulty configuration or not updated with the vehicle configuration information.
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& The garage software needs to be connected to the central database and atleast one vehicle record must be present.
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle
+    \item Perform a change to the vehicle information
+    \item Commit the changes
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with vehicle information
+    \item New information is stored
+    \item Changes are committed in full to the central database
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Vehicle configuration information is updated in the central database
+\\
+\hline
+
+Result
+& Vehicle configuration information is updated in the central database
+\\
+\hline
+
+Comments
+& Everything loads as expected after connecting the garage program to the factory server. Any changes to the vehicle configuration in the garage view is committed to the central database
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+% ---------------- %
+
+\begin{table}[H]
+\centering
+\caption{Garage system test}
+\begin{tabularx}{1.0\textwidth}{
+    |p{\dimexpr.25\linewidth-2\tabcolsep-1.3333\arrayrulewidth}     % column 1
+    |p{\dimexpr.75\linewidth-2\tabcolsep-1.3333\arrayrulewidth}|    % column 2
+}
+\hline
+
+Test ID
+& 2.9
+\\
+\hline
+
+Test name
+& Map Customer to vehicle and vice-versa
+\\
+\hline
+
+Main goal
+& The system shall keep track of which customer owns which car and who's the owner of a given car
+\\
+\hline
+
+Requirement(s)
+& The system shall use the customer database to identify the vehicle's serial number based on customer name and vice versa
+\\
+\hline
+
+Description
+& The system keeps track of cars and owners
+\\
+\hline
+
+Stakeholders
+& End-users, developers, customer, testers
+\\
+\hline
+
+Risk
+& The vehicle's serial number is mapped to the wrong customer
+\\
+\hline
+
+Test type
+& System
+\\
+\hline
+
+Preconditions
+& At least one vehicle and customer record with matching keys must be present.
+\\
+\hline
+
+Input
+& \begin{enumerate}
+    \item Select a vehicle via serial number
+    \item Select a customer based on name search
+\end{enumerate}
+\\
+\hline
+
+Output
+& \begin{enumerate}
+    \item View updates with vehicle information and associated owner
+    \item View selects the owner matching the name and the first matching vehicle based on ownership sorted by lowest index
+\end{enumerate}
+\\
+\hline
+
+Expected result
+& Database tracks customers and owners correctly
+\\
+\hline
+
+Result
+& Database tracks customers and owners correctly
+\\
+\hline
+
+Comments
+& Everything works as expected, though extra care needs to be taken when a customer has more than one car, as only the first one is selected.
+\\
+\hline
+
+Passed
+& Yes
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+\clearpage
